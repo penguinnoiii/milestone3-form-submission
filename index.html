@@ -7,14 +7,61 @@
     <title>Vite App</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
-  <body>
-    <div id="app" class="bg-red-500">
-      <h1 class="text-[2rem] font-bold">Hello World</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-        distinctio doloribus mollitia sit nisi fugiat, dolorem vero obcaecati
-        amet possimus.
-      </p>
+  <body class="bg-emerald-50 flex items-center justify-center h-screen">
+    <div
+      class="bg-white rounded-xl p-8 min-w-[38rem] min-h-[38rem] shadow-lg flex flex-col justify-around"
+    >
+      <h1 class="text-3xl font-semibold text-emerald-950">Contact Us</h1>
+      <form class="flex flex-col gap-5">
+        <div class="flex justify-between gap-5">
+          <div class="w-1/2">
+            <label for="fname" class="text-gray-500 text-sm">First Name</label><br />
+            <input type="text" id="fname" name="fname" class="w-full h-10 border rounded-md" /><br />
+          </div>
+          <div class="w-1/2">
+            <label for="lname" class="text-gray-500 text-sm">Last Name</label><br />
+            <input type="text" id="lname" name="lname" class="w-full h-10 border rounded-md" /><br />
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="text-gray-500 text-sm">Email Address</label><br />
+          <input type="text" id="email" name="email" class="w-full h-10 border rounded-md" /><br />
+        </div>
+
+        <div>
+          <label for="query" class="text-gray-500 text-sm">Query Type</label><br />
+          <div class="flex justify-between gap-5">
+            <div class="w-1/2 p-3 h-10 border rounded-md flex items-center gap-3">
+              <input type="radio" id="general" name="query" />
+              <label for="general" class="text-gray-500 text-base">General Enquiry</label>
+            </div>
+            <div class="w-1/2 p-3 h-10 border rounded-md flex items-center gap-3">
+              <input type="radio" id="support" name="query" />
+              <label for="support" class="text-gray-500 text-base">Support Request</label><br />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="text-gray-500 text-sm">Message</label><br />
+          <textarea row="3" cols="50" id="message" name="message" class="w-full h-20 border rounded-md" /></textarea><br />
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <input type="checkbox" id="consent" name="consent" />
+          <label for="consent" class="text-gray-500 text-sm">I consent to bring contacted by team</label
+          ><br />
+        </div>
+
+        <button
+          type="button"
+          id="submit"
+          class="btn text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 p-3 rounded-lg"
+        >
+          Submit
+        </button>
+      </form>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
