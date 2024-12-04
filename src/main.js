@@ -65,5 +65,5 @@ submitButton.addEventListener("click", (event) => {
 const usersListButton = document.getElementById("usersList")
 
 usersListButton.addEventListener("click", () => {
-  window.location.href = './user.html'
+  window.location.href = './public/user.html'
 })

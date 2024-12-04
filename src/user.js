@@ -34,5 +34,5 @@ const user = fetch("http://localhost:3000/users")
 const contactForm = document.getElementById("contactForm");
 
 contactForm.addEventListener("click", () => {
-  window.location.href = "./index.html";
+  window.location.href = "https://milestone3-form-submission-btni7jwdt-penguinnoiiis-projects.vercel.app/";
 });
