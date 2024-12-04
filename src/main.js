@@ -1,12 +1,10 @@
-const fs = require('fs')
-const filePath = '.\db.json'
-
 const form = document.getElementById("userForm")
 const firstName = document.getElementById("fname")
 const lastName = document.getElementById("lname")
 const email = document.getElementById("email")
 const queryType = document.querySelectorAll('input[name = "query"]')
 const message = document.getElementById("message")
+const submitButton = document.getElementById("submit")
 
 let userData = {}
 
@@ -41,26 +39,31 @@ message.addEventListener("change", (event) => {
     console.log(userData)
 })
 
-form.addEventListener("submit", (event) => {
+submitButton.addEventListener("click", (event) => {
     event.preventDefault()
 
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.log("Error reading file:", err)
-            return
-        }
-    
-        let jsonData = JSON.parse(data)
-    
-        jsonData.users.push(userData)
+    fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data saved:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
-        fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (error) => {
-            if (error) {
-                console.log("Error writing file:", error)
-                return
-            }
-            console.log("Data successfully added to the JSON file!")
-        })
-    })
+    console.log("Successfully!!!")
+
+    form.reset()
 })
 
+const usersListButton = document.getElementById("usersList")
+
+usersListButton.addEventListener("click", () => {
+  window.location.href = './user.html'
+})
